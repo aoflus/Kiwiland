@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Graph class that stores the input graph
@@ -77,8 +78,31 @@ public class Graph {
 		return adjacencyList.get(new Vertex(name));
 	}
 	
+	/**
+	 * Utility method that given the name of a vertex returns the edge with the
+	 * minimum value from the list of edges connected to it. Returns null if there
+	 * are no edges.
+	 *
+	 * @param name The name of the vertex
+	 * @return The edge with the smallest weight if exists. Null otherwise
+	 */
 	public Edge getLowestPathEdge(String name) {
 		List<Edge> paths = adjacencyList.get(new Vertex(name));
-		return Collections.min(paths);
+		return paths.isEmpty() ? null : Collections.min(paths);
+	}
+	
+	/**
+	 * Utility method that given the name of two vertex returns either the lowest
+	 * of the paths connecting the two edges or null;
+	 *
+	 * @param from The name of the starting point vertex
+	 * @param to The name of the ending point vertex
+	 * @return The edge with the smallest weight if exists. Null otherwise
+	 */
+	public Edge getLowestPathEdge(String from, String to) {
+		List<Edge> paths = adjacencyList.get(new Vertex(from)).stream()
+				.filter(path -> path.getTo().equals(to))
+				.collect(Collectors.toList());
+		return paths.isEmpty() ? null : Collections.min(paths);
 	}
 }
