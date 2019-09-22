@@ -17,9 +17,15 @@ public class SimpleTraverse {
 	public int getFullPathSize(String path) {
 		int pathSum = 0;
 		String[] route = path.split("-");
-		for (int i = 1; i < route.length; i++) {
-			pathSum += getPathSize(route[i-1], route[i]);
+		try {
+			for (int i = 1; i < route.length; i++) {
+				pathSum += getPathSize(route[i-1], route[i]);
+			}
+			return pathSum;
 		}
-		return pathSum;
+		catch (NullPointerException e){
+			
+		}
+		return -1;
 	}
 }
