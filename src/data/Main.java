@@ -1,4 +1,4 @@
-package code;
+package data;
 
 public class Main {
 

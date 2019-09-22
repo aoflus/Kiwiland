@@ -1,6 +1,7 @@
-package code;
+package data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,46 +10,6 @@ import java.util.Map;
  * Graph class that stores the input graph
  */
 public class Graph {
-	
-	/**
-	 * Edge class to store the information of each of the given cities.
-	 * The name of the city is stored in a city variable that can be publicly accessed using
-	 * the getName method.
-	 */
-	class Vertex {
-		
-		private String name;
-		
-		public Vertex(String name) { this.name = name;}
-		public String getName() {return this.name;}
-	}
-	
-	/**
-	 * Edge class to store the information of each of the given paths that connect the cities.
-	 * It contains the name of the two cities that are connected.
-	 * The weight of the edge is stored in a weight property.
-	 */
-	class Edge implements Comparable<Edge> {
-		
-		private int weight;
-		private String from;
-		private String to;
-		
-		public Edge(String from, String to, int weight) {
-			this.weight = weight;
-			this.from = from;
-			this.to = to;
-			}
-		
-		public String getFrom() {return this.from;}
-		public String getTo() {return this.to;}
-		public int getWeigth() {return this.weight;}
-		
-		@Override
-		public int compareTo(Edge e) {
-			return (this.weight > e.weight) ? 1 : (this.weight == e.weight) ? 0 : -1;
-		}
-	}
 	
 	/* Private attributes declaration */
 	private Map<Vertex, List<Edge>> adjacencyList;
@@ -82,6 +43,10 @@ public class Graph {
 		}
 	}
 	
+	public Map<Vertex, List<Edge>> getAdjacencyList() {
+		return this.adjacencyList;
+	}
+	
 	/**
 	 * Adds a new vertex to the graph in case it does not exist already.
 	 * @param name The name of the city
@@ -102,4 +67,18 @@ public class Graph {
 		adjacencyList.get(new Vertex(from)).add(new Edge(from, to, weight));
 	}
 	
+	/**
+	 * Returns the list of adjacent edges to a specific given vertex.
+	 *
+	 * @param name The name of the vertex
+	 * @return a List of edges containing all the adjacent edges to that vertex
+	 */
+	public List<Edge> getAdjacentEdges(String name){
+		return adjacencyList.get(new Vertex(name));
+	}
+	
+	public Edge getLowestPathEdge(String name) {
+		List<Edge> paths = adjacencyList.get(new Vertex(name));
+		return Collections.min(paths);
+	}
 }

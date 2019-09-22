@@ -1,4 +1,4 @@
-package code;
+package algorithms;
 
 public class Dikjstra {
 	
