@@ -35,6 +35,7 @@ class SimpleTraverseTest {
 		assertTrue(traverse.getFullPathSize("A-D-C") == 13);
 		assertTrue(traverse.getFullPathSize("A-E-B-C-D") == 22);
 		assertTrue(traverse.getFullPathSize("A-E-D") == -1);
+		
 	}
 
 }

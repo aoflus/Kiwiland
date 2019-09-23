@@ -10,7 +10,7 @@ public class SimpleTraverse {
 		this.graph = graph;
 	}
 	
-	public int getPathSize(String start, String end) {
+	private int getPathSize(String start, String end) {
 		return graph.getLowestPathEdge(start, end).getWeigth();
 	}
 	
@@ -23,7 +23,7 @@ public class SimpleTraverse {
 			}
 			return pathSum;
 		}
-		catch (NullPointerException e){
+		catch (NullPointerException e){ 
 			
 		}
 		return -1;

@@ -14,14 +14,14 @@ public class Vertex {
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+		return name.hashCode();
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
+		if (!(obj instanceof Vertex)) {
+			return false;
+		}
 		return this.getName().equals(((Vertex) obj).getName());
 	}
 }

@@ -37,6 +37,9 @@ public class Graph {
 	
 	private void addInitialData(List<String> initialData) {
 		for (String input : initialData) {
+			if (input.length() != 3) {
+				throw new IllegalArgumentException("The data provided is not on the correct format");
+			}
 			addVertex(input.substring(0,1));
 			addEdge(input.substring(0,1),
 					input.substring(1,2), 
@@ -76,19 +79,6 @@ public class Graph {
 	 */
 	public List<Edge> getAdjacentEdges(String name){
 		return adjacencyList.get(new Vertex(name));
-	}
-	
-	/**
-	 * Utility method that given the name of a vertex returns the edge with the
-	 * minimum value from the list of edges connected to it. Returns null if there
-	 * are no edges.
-	 *
-	 * @param name The name of the vertex
-	 * @return The edge with the smallest weight if exists. Null otherwise
-	 */
-	public Edge getLowestPathEdge(String name) {
-		List<Edge> paths = adjacencyList.get(new Vertex(name));
-		return paths.isEmpty() ? null : Collections.min(paths);
 	}
 	
 	/**

@@ -32,7 +32,7 @@ class GraphTest {
 	@Test
 	public void testLowestPathEdge() {
 		Graph graph = new Graph(graphData);
-		assertTrue(graph.getLowestPathEdge("A").equals(new Edge("A", "C", 1)));
+		assertTrue(graph.getLowestPathEdge("A", "C").equals(new Edge("A", "C", 1)));
 	}
 
 }
