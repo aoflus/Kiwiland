@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import algorithms.SimpleTraverse;
-import data.Graph;
+import model.Graph;
+import src.SimpleTraverse;
 
 class SimpleTraverseTest {
 	
@@ -27,7 +27,7 @@ class SimpleTraverseTest {
 	
 	@Test
 	void testTraverse() {
-		graph = new Graph(graphData);
+		graph = new Graph();
 		traverse = new SimpleTraverse(graph);
 		
 		assertTrue(traverse.getFullPathSize("A-B-C") == 9);

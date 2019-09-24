@@ -1,6 +1,6 @@
-package algorithms;
+package src;
 
-import data.Graph;
+import model.Graph;
 
 public class SimpleTraverse {
 	
