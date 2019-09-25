@@ -49,7 +49,7 @@ public class Graph {
 	private void addInitialData(String[] initialData) {
 		for (String input : initialData) {
 			if (input.length() != 3) {
-				throw new IllegalArgumentException("The data provided is not"
+				throw new IllegalArgumentException("The data provided is not "
 						+ "on the correct format");
 			}
 			addVertex(input.substring(0,1));
