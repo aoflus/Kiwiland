@@ -14,25 +14,30 @@ import model.Graph;
 
 class GraphTest {
 	
-	private List<String> graphData;
+	private Graph graph;
 	
 	@BeforeEach
 	public void setUpData() {
-		String[] rawData = {"AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2", "EB3", "AE7", "AC1"};
-		graphData = new ArrayList<String>();
-		graphData.addAll(Arrays.asList(rawData));
+		String[] rawData = {"AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2",
+				"EB3", "AE7", "AC1"};
+		graph = new Graph(rawData);
 	}
 
 	@Test
-	public void testCreateGraphWithInitialData() {
-		//Graph graph = new Graph(graphData);
-		
+	public void testLowestPathEdge() {
+		assertTrue(graph.getLowestPathEdge("A", "C").equals(new Edge("A", "C", 1)));
 	}
 	
 	@Test
-	public void testLowestPathEdge() {
-		//Graph graph = new Graph(graphData);
-		//assertTrue(graph.getLowestPathEdge("A", "C").equals(new Edge("A", "C", 1)));
+	public void testAddInformation() {
+		graph.addVertex("J");
+		graph.addEdge("J", "A", 8);
+		assertTrue(graph.getLowestPathEdge("J", "A").equals(new Edge("J", "A", 8)));
+		
+		graph.addEdge("J", "A", 4);
+		assertTrue(graph.getLowestPathEdge("J", "A").equals(new Edge("J", "A", 4)));
 	}
+	
+	
 
 }

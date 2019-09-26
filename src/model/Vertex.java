@@ -23,7 +23,7 @@ public class Vertex {
 	}
 	
 	/**
-	 * The equals method for the Vertext class compares the names of both 
+	 * The equals method for the Vertex class compares the names of both 
 	 * vertexes.
 	 *
 	 * @return True if both characters are the same. False otherwise.
