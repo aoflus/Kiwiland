@@ -6,11 +6,11 @@
  3. Open a command line on the folder.
  4. Execute either of those lines:
   ```
-  java - jar Kiwiland_v1.jar
+  java -jar Kiwiland_v1.jar
   ```
   or
   ```
-  java jar Kiwiland_v1.jar -d "data_input" -p "paths_input"
+  java -jar Kiwiland_v1.jar -d "data_input" -p "paths_input"
   ```
  
  **Arguments**
