@@ -28,5 +28,6 @@
 If *NO ARGUMENTS* are provided, the program will execute the code using the default test arguments provided on the exercice description.
 
 **Program returns**
+
 When a valid invocation of the jar is done, the program will return the numeric value representing the sum of all the ninimum paths for
 each given route. In case no route exists that connect the given edges, the program will return "NO SUCH ROUTE".
