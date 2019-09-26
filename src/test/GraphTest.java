@@ -2,10 +2,6 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +34,19 @@ class GraphTest {
 		assertTrue(graph.getLowestPathEdge("J", "A").equals(new Edge("J", "A", 4)));
 	}
 	
-	
+	@SuppressWarnings("unused")
+	@Test
+	public void testAddInitialIncorrectData() {
+		String[] failData = {"AER"};
+		assertThrows(NumberFormatException.class, () -> {
+			Graph failGraph = new Graph(failData);
+		});
+	}
 
+	@Test
+	public void testAddInitialDataWeightBiggerThanNine() {
+		String[] data = {"AE200"};
+		Graph anotherGraph = new Graph(data);
+		assertTrue(anotherGraph.getLowestPathEdge("A", "E").equals(new Edge("A", "E", 200)));
+	}
 }

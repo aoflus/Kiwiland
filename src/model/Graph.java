@@ -39,23 +39,26 @@ public class Graph {
 	
 	/**
 	 * Given an array of strings adds them as vertexes and edges. The Strings
-	 * must follow the format 'XYK' where:
+	 * must follow the format 'XYK1...Kn' where:
 	 *  - X Character representing the first city
 	 *  - Y Character representing the second city
-	 *  - K Integer representing the distance of the path
+	 *  - K1...Kn Integers representing the distance of the path
 	 *
 	 * @param initialData the nodes data set
 	 */
 	private void addInitialData(String[] initialData) {
 		for (String input : initialData) {
-			if (input.length() != 3) {
+			if (input.length() < 3) {
 				throw new IllegalArgumentException("The data provided is not "
-						+ "on the correct format");
+						+ "on the correct format: " + input);
+			} else if (!input.substring(2).matches("-?\\d+(\\.\\d+)?")) {
+				throw new NumberFormatException("The weight data provided is "
+						+ "not on the correct format: " + input);
 			}
 			addVertex(input.substring(0,1));
 			addEdge(input.substring(0,1),
 					input.substring(1,2), 
-					Integer.parseInt(input.substring(2,3)));
+					Integer.parseInt(input.substring(2)));
 		}
 	}
 	

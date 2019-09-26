@@ -37,7 +37,7 @@ public class Main {
 	 */
 	private static String[] parseArguments(String[] args) {
 		String[] options = new String[2];
-		if (args[0] == null) { // check for no arguments
+		if (args.length == 0) { // check for no arguments
 			return options;
 		}
 		
